@@ -1,0 +1,61 @@
+
+            body{
+                background-color:rgb(202, 202, 235);
+                                
+                text-align:center;
+            }
+            body .form_wrapper{
+            
+                display:inline-block;
+                background-color: #fff;
+                height: 10em;
+                border-radius: 20px;
+                height: auto;
+                padding: 15px 18px;
+                margin: 10% auto;
+                /*margin-left: auto;
+                margin-right: auto;*/
+                width:auto;
+                white-space: nowrap;
+
+               
+            } 
+            
+            .form-head
+            {
+            font-family:Bahnschrift;font-size:x-large;color:blue;
+                
+            }
+            
+            .form-items
+            {
+                font-family:Bahnschrift;font-size:medium;color:black;
+            margin-right: 60px;
+            float:right; 
+            border-radius: 10px;
+            }
+            
+            .gap
+            {
+            height:50px;
+            
+            }
+            
+            .form-label
+            {
+                font-family:Bahnschrift;font-size:medium;color:rgb(31, 7, 97);
+            text-align: center;
+            margin-left: 100px; 
+            float:left;   
+            }
+            
+            .form-sub
+            {
+                font-family:Bahnschrift;
+                background-color:rgb(54, 7, 116);
+                color: white;
+                width: 150px;
+                height: 40px;
+                border-radius: 20px;
+                
+            }

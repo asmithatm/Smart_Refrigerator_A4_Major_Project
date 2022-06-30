@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Registration</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href='newcss.css'>
+<script language="javascript" type="text/javascript">
+function dynamicdropdown(listindex)
+{
+document.getElementById("subcategory").length = 0;
+switch (listindex)
+{
+case "Solid" :
+document.getElementById("subcategory").options[0]=new Option("Select SubCategory","");
+document.getElementById("subcategory").options[1]=new Option("Container for HomeMade","cont for HomeMade");
+document.getElementById("subcategory").options[2]=new Option("Medicines","Medicines");
+document.getElementById("subcategory").options[3]=new Option("Fruits Or Vegetables","Fruits Or Vegetables");
+document.getElementById("subcategory").options[4]=new Option("Bakery Items","Bakery Items");
+document.getElementById("subcategory").options[5]=new Option("Meat","Meat");
+document.getElementById("subcategory").options[6]=new Option("Cereals","Cereals");
+break;
+case "Liquid" :
+document.getElementById("subcategory").options[0]=new Option("Select SubCategory","");
+document.getElementById("subcategory").options[1]=new Option("Container for HomeMade","cont for HomeMade");
+document.getElementById("subcategory").options[2]=new Option("Drinks","Drinks");
+document.getElementById("subcategory").options[3]=new Option("Milk Products","Milk Products");
+document.getElementById("subcategory").options[4]=new Option("Medicinal Syrups","Medicinal Syrups");
+break;
+case "Semi Solid" :
+document.getElementById("subcategory").options[0]=new Option("Select SubCategory","");
+document.getElementById("subcategory").options[1]=new Option("Container for HomeMade","cont for HomeMade");
+document.getElementById("subcategory").options[2]=new Option("Milk Products","Milk Products");
+document.getElementById("subcategory").options[3]=new Option("Bakery Items","Bakery Items");
+break;
+}
+return true;
+}
+</script>
+    </head>
+    <body>
+        <div class = "form_wrapper">
+        <form action="FindTIDServlet" method="POST">
+            <h1 class = "form-head">Manufacturer Product Registration</h1><br>
+            <label class = "form-label">Enter your MID:</label><input type="text" class = "form-items" name="Mmid" value="" size="10" />
+            <div class="gap">  </div>
+            <label class = "form-label">Select Product Type</label>
+            <select  class = "form-items" name="mCNC">
+                <option>NonContainer</option>
+                <option>Container</option>
+            </select>
+            <div class="gap">  </div> 
+            <label class = "form-label">Select Category</label>
+                <select name="mcat"  class="required-entry form-items" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+                <option>Solid</option>
+                <option>Liquid</option>
+                <option>Semi Solid</option>
+            </select>
+            <div class="gap">  </div>
+            <label class = "form-label">Select SubCategory</label> 
+            <script type="text/javascript" language="JavaScript">
+            document.write('<select name="msubcat"  class = "form-items" id="subcategory"><option value="">SubCategory</option></select>');
+            </script>
+           <noscript>
+           <select name="msubcat" id="subcategory" >
+            <option value="">SubCategory</option>
+            </select>
+            </noscript>
+            <div class="gap">  </div>            
+            <input type="submit" class = "form-sub" value="Get TID" name="submit" />
+        </form>
+    </div>
+    </body>
+</html>
