@@ -1,0 +1,12 @@
+package servlet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+/**
+ * Servlet implementation class closeServerServlet
+ */
+public class closeServerServlet extends HttpServlet {
+	
+
+}

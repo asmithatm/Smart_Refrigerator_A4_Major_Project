@@ -1,0 +1,288 @@
+package servlet;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import client.TCPClient;
+
+public class ClientServlet extends HttpServlet {
+static String encmsg="", serverMsg="";
+	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException 
+	{
+		//http://localhost:9090/servletProgram/ClientServlet
+		PrintWriter out = res.getWriter();
+		//int i = Integer.parseInt(req.getParameter("num1"));
+		//int j = Integer.parseInt(req.getParameter("num2"));
+
+		encmsg=Operations();
+		try {
+			serverMsg = TCPClient.client(encmsg);
+			out.println("Server MESSAGE : " +serverMsg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//int k = i+j;
+
+		//System.out.println("result : " +k);
+
+		//out.println("result : " +k);
+		
+	}
+	
+//	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//	    System.out.println("doPost");
+//	    String msg = client.TCPClient.serverMessage;
+//	    ObjectInputStream objIn = new ObjectInputStream(request.getInputStream());
+//
+//	    ClientServlet p = null;
+//	    try {
+//	        p = (ClientServlet) objIn.readObject();
+//		    System.out.println("Servlet received p: "+p);  
+//
+//	    } catch (ClassNotFoundException e) {
+//	        e.printStackTrace();
+//	    }
+//
+//     
+//	}
+
+//	public void printServerMessage(String serverMessage) throws IOException {
+//		HttpServletRequest req = null; HttpServletResponse res;
+//		service(req, res);
+//		System.out.println("HELLO WORLD: "+serverMessage);
+//		this.serverMessage = serverMessage;
+//	}
+	
+	public static String Operations() {
+		
+	      System.out.println("Choose the Opeartion :");
+	      //boolean check = true;
+	     // while(check) {
+	    	  	System.out.println("\n\n Enter 1 to Search All Items in Refrigerator Operation\n "
+	    			  				+ "Enter 2 to Check the expiry date of a Particular Item\n "
+	    	  						+ "Enter 3 for Search Particular Item\n "
+	    	  						+ "Enter 4 to know the Shelf Life\n "
+	    	  						+ "Enter 5 for exit\n");
+	    	  	Scanner sc = new Scanner(System.in);
+	    	  	int op = sc.nextInt();
+	    	  	int cat,subcat;
+	    	  	String itemname="";
+	    	  	String category="", subcategory="", brand="";
+	    	  
+	    	  	switch(op)
+	    	  	{
+	    	  		case 1 :   /*Display All Items in Refrigerator Operation*/
+	    	  					encmsg = "01#001#*";
+	    	  					break;
+	    	  		case 2 : 	/*Check the expiry date of a Particular Item*/
+	    	  					System.out.println("Choose the Category under which you would like to search the item :");
+								System.out.println("Press 1 for Solid\nPress 2 for Liquid\nPress 3 for Semi Solid");
+								cat = sc.nextInt();
+						
+								switch(cat)
+								{
+									case 1 : 	category = "S";
+								 				System.out.println("Choose the Sub Category under which you would like to search the item :");
+								 				System.out.println("Press 1 for Medicines\nPress 2 for Fruits Or Vegetables\nPress 3 for Bakery Items\nPress 4 for Meat\nPress 5 for Cereals\n");
+								 				subcat = sc.nextInt();
+								 				switch(subcat)
+								 				{
+								 					case 1 : 	subcategory = "02";
+		    	  							 					System.out.println("Enter the Brand Name\n");
+		    	  							 					brand = sc.next();
+		    	  							 					System.out.println("Enter the item name to get its expiry date: ");
+		    	  							 					itemname = sc.next();
+		    	  							 					break;
+								 					case 2 : 	subcategory = "03";
+		    	  												System.out.println("Enter the Brand Name\n");
+		    	  												brand = sc.next();
+		    	  												System.out.println("Enter the item name to get its expiry date: ");
+		    	  												itemname = sc.next();
+		    	  												break;
+								 					case 3 : 	subcategory = "04";
+		    	  												System.out.println("Enter the Brand Name\n");
+		    	  												brand = sc.next();
+		    	  												System.out.println("Enter the item name to get its expiry date: ");
+		    	  												itemname = sc.next();
+		    	  												break;
+								 					case 4 : 	subcategory = "05";
+		    	  												System.out.println("Enter the Brand Name\n");
+		    	  												brand = sc.next();
+		    	  												System.out.println("Enter the item name to get its expiry date: ");
+		    	  												itemname = sc.next();
+		    	  												break;
+								 					case 5 : 	subcategory = "06";
+		    	  												System.out.println("Enter the Brand Name\n");
+		    	  												brand = sc.next();
+		    	  												System.out.println("Enter the item name to get its expiry date: ");
+		    	  												itemname = sc.next();
+		    	  												break;
+								 				}
+								 				break;
+									case 2 : 	category = "L";
+						 						System.out.println("Choose the Sub Category under which you would like to search the item :");
+						 						System.out.println("Press 1 for Drinks\nPress 2 for Milk Products\nPress 3 for Medicinal Syrups\n");
+						 						subcat = sc.nextInt();
+						 						switch(subcat)
+						 						{
+						 							case 1 : 	subcategory = "02";
+		  	    	  							 				System.out.println("Enter the Brand Name\n");
+		  	    	  							 				brand = sc.next();
+		  	    	  							 				System.out.println("Enter the item name to get its expiry date: ");
+		  	    	  							 				itemname = sc.next();
+		  	    	  							 				break;
+						 							case 2 : 	subcategory = "03";
+		  	    	  											System.out.println("Enter the Brand Name\n");
+		  	    	  											brand = sc.next();
+		  	    	  											System.out.println("Enter the item name to get its expiry date: ");
+		  	    	  											itemname = sc.next();
+		  	    	  											break;
+						 							case 3 : 	subcategory = "04";
+		  	    	  											System.out.println("Enter the Brand Name\n");
+		  	    	  											brand = sc.next();
+		  	    	  											System.out.println("Enter the item name to get its expiry date: ");
+		  	    	  											itemname = sc.next();
+		  	    	  											break;
+						 						}
+						 						break;
+									case 3 : 	category = "M";
+			 									System.out.println("Choose the Sub Category under which you would like to search the item :");
+			 									System.out.println("Press 1 for Milk Products\nPress 2 for Bakery Items\n");
+			 									subcat = sc.nextInt();
+			 									switch(subcat)
+			 									{
+			 										case 1 : 	subcategory = "02";
+	  	  							 							System.out.println("Enter the Brand Name\n");
+	  	  							 							brand = sc.next();
+	  	  							 							System.out.println("Enter the item name to get its expiry date: ");
+	  	  							 							itemname = sc.next();
+	  	  							 							break;
+			 										case 2 : 	subcategory = "03";
+			 													System.out.println("Enter the Brand Name\n");
+			 													brand = sc.next();
+			 													System.out.println("Enter the item name to get its expiry date: ");
+			 													itemname = sc.next();
+			 													break;
+			 									}
+			 									break;
+								}
+	 
+								encmsg = "02#001#"+category+"&"+subcategory+"&"+brand+"&"+itemname+"*";
+								break;
+	    	  		case 3 : 	/*Search Particular Item*/
+	    	  					System.out.println("Choose the Category under which you would like to search the item :");
+	    	  					System.out.println("Press 1 for Solid\nPress 2 for Liquid\nPress 3 for Semi Solid");
+	    	  					cat = sc.nextInt();
+		    	  				 
+	    	  					switch(cat)
+	    	  					{
+	    	  						case 1 : 	category = "S";
+	    	  							 		System.out.println("Choose the Sub Category under which you would like to search the item :");
+	    	  							 		System.out.println("Press 1 for Medicines\nPress 2 for Fruits Or Vegetables\nPress 3 for Bakery Items\nPress 4 for Meat\nPress 5 for Cereals\n");
+	    	  							 		subcat = sc.nextInt();
+	    	  							 		switch(subcat)
+	    	  							 		{
+	    	  							 			case 1 : 	subcategory = "02";
+	    	  	    	  							 			System.out.println("Enter the Brand Name\n");
+	    	  	    	  							 			brand = sc.next();
+	    	  	    	  							 			System.out.println("Enter the name of particular item that you want to Search: ");
+	    	  	    	  							 			itemname = sc.next();
+	    	  	    	  							 			break;
+	    	  							 			case 2 : 	subcategory = "03";
+	    	  	    	  									System.out.println("Enter the Brand Name\n");
+	    	  	    	  									brand = sc.next();
+	    	  	    	  									System.out.println("Enter the name of particular item that you want to Search: ");
+	    	  	    	  									itemname = sc.next();
+	    	  	    	  									break;
+	    	  							 			case 3 : 	subcategory = "04";
+	    	  	    	  									System.out.println("Enter the Brand Name\n");
+	    	  	    	  									brand = sc.next();
+	    	  	    	  									System.out.println("Enter the name of particular item that you want to Search: ");
+	    	  	    	  									itemname = sc.next();
+	    	  	    	  									break;
+	    	  							 			case 4 : 	subcategory = "05";
+	    	  	    	  									System.out.println("Enter the Brand Name\n");
+	    	  	    	  										brand = sc.next();
+	    	  	    	  										System.out.println("Enter the name of particular item that you want to Search: ");
+	    	  	    	  										itemname = sc.next();
+	    	  	    	  										break;
+	    	  							 			case 5 : 	subcategory = "06";
+	    	  	    	  									System.out.println("Enter the Brand Name\n");
+	    	  	    	  									brand = sc.next();
+	    	  	    	  									System.out.println("Enter the name of particular item that you want to Search: ");
+	    	  	    	  									itemname = sc.next();
+	    	  	    	  									break;
+	    	  							 		}
+	    	  							 		break;
+	    	  						case 2 : 	category = "L";
+	 							 				System.out.println("Choose the Sub Category under which you would like to search the item :");
+	 							 				System.out.println("Press 1 for Drinks\nPress 2 for Milk Products\nPress 3 for Medicinal Syrups\n");
+	 							 				subcat = sc.nextInt();
+	 							 				switch(subcat)
+	 	    	  	    	  				 	{
+	 	    	  	    	  				 		case 1 : 	subcategory = "02";
+	 	    	  	    	  							 		System.out.println("Enter the Brand Name\n");
+	 	    	  	    	  							 		brand = sc.next();
+	 	    	  	    	  							 		System.out.println("Enter the name of particular item that you want to Search: ");
+	 	    	  	    	  							 		itemname = sc.next();
+	 	    	  	    	  							 		break;
+	 	    	  	    	  				 		case 2 : 	subcategory = "03";
+	 	    	  	    	  									System.out.println("Enter the Brand Name\n");
+	 	    	  	    	  									brand = sc.next();
+	 	    	  	    	  									System.out.println("Enter the name of particular item that you want to Search: ");
+	 	    	  	    	  									itemname = sc.next();
+	 	    	  	    	  									break;
+	 	    	  	    	  				 		case 3 : 	subcategory = "04";
+	 	    	  	    	  									System.out.println("Enter the Brand Name\n");
+	 	    	  	    	  									brand = sc.next();
+	 	    	  	    	  									System.out.println("Enter the name of particular item that you want to Search: ");
+	 	    	  	    	  									itemname = sc.next();
+	 	    	  	    	  									break;
+	 	    	  	    	  				 	}
+	 							 				break;
+	    	  						case 3 : 	category = "M";
+						 						System.out.println("Choose the Sub Category under which you would like to search the item :");
+						 						System.out.println("Press 1 for Milk Products\nPress 2 for Bakery Items\n");
+						 						subcat = sc.nextInt();
+						 						switch(subcat)
+						 						{
+						 							case 1 : 	subcategory = "02";
+		  	    	  							 				System.out.println("Enter the Brand Name\n");
+		  	    	  							 				brand = sc.next();
+		  	    	  							 				System.out.println("Enter the name of particular item that you want to Search: ");
+		  	    	  							 				itemname = sc.next();
+		  	    	  							 				break;
+						 							case 2 : 	subcategory = "03";
+		  	    	  											System.out.println("Enter the Brand Name\n");
+		  	    	  											brand = sc.next();
+		  	    	  											System.out.println("Enter the name of particular item that you want to Search: ");
+		  	    	  											itemname = sc.next();
+		  	    	  											break;
+						 						}
+						 						break;
+		  	    	  			}
+		    	  				
+	    	  					encmsg = "03#001#"+category+"&"+subcategory+"&"+brand+"&"+itemname+"*";
+	    	  					break;
+	    	  		case 4 :	/*To display likely to expire products*/
+	    	  					encmsg = "04#001#*";
+								break;			
+	    	  		case 5 : 	/*Exit from infinite loop*/
+	    	  					//check = false;
+	    	  					encmsg = "05#001#0*";
+	    	  					break;
+	    	  		default : 	System.out.println("Enter correct input");
+	    	  					break;
+	    	  }
+	    	 
+	      //}
+		return encmsg;
+	}
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smart Refrigerator Portal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="expiry.css">
+    </head>
+<body>
+<form action="inoutServlet" method="post">  
+<label for="itemrfid">Enter RFID of Item:</label>
+<input type="text" name="itemrfid"/><br><br>
+<input type="radio" name="status" value="in" />IN 
+<input type="radio" name="status" value="out" />OUT<br><br>
+<input type="submit" value="Proceed"/> <br><br>
+<div><a href='http://localhost:9090/servletProgram/'><img alt='Home' src='homeBtncircle.png' width='70' height='70'> </a></div>
+</form> 
+</body>
+</html>

@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+E:\Smart Refrigerator\code\RefrigeratorApplication\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3311076804.index
+3631737757.index
+1541996692.index
+1921128480.index
+2416450538.index
+3018875848.index

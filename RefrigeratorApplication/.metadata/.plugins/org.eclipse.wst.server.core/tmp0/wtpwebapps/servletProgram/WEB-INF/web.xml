@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>servletProgram</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+   <servlet-name>ClientServlet</servlet-name>
+   <servlet-class>servlet.ClientServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>ClientServlet</servlet-name>
+   <url-pattern>/ClientServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>displayAllServlet</servlet-name>
+   <servlet-class>servlet.displayAllServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>displayAllServlet</servlet-name>
+   <url-pattern>/displayAllServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>shelflifeServlet</servlet-name>
+   <servlet-class>servlet.shelflifeServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>shelflifeServlet</servlet-name>
+   <url-pattern>/shelflifeServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>searchServlet</servlet-name>
+   <servlet-class>servlet.searchServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>searchServlet</servlet-name>
+   <url-pattern>/searchServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>expiryServlet</servlet-name>
+   <servlet-class>servlet.expiryServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>expiryServlet</servlet-name>
+   <url-pattern>/expiryServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>inoutServlet</servlet-name>
+   <servlet-class>servlet.inoutServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>inoutServlet</servlet-name>
+   <url-pattern>/inoutServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>closeServerServlet</servlet-name>
+   <servlet-class>servlet.closeServerServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>closeServerServlet</servlet-name>
+   <url-pattern>/closeServerServlet</url-pattern>
+</servlet-mapping>
+</web-app>

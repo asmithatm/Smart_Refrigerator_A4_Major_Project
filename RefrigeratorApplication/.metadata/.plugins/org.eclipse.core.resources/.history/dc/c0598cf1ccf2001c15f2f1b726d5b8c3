@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Server Closed</title>
+<link rel="stylesheet" href="displayAll.css">
+</head>
+<body>
+<h1>Refrigerator Closed.<br> You can no longer perform operations on the Refrigerator Server</h1>
+<h2>Please Close this Window</h2>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Expiry Date</title>
+    <link rel="stylesheet" href="expiry.css">
+    <script src="expiry.js"></script>
+<body>
+    <h1>Check Expiry Date of a particular Item</h1>
+    <form name="expiryForm" id="expiryForm" action="expiryServlet" method="POST">
+        Select the Category: <select name="cat" id="cat">
+            <option value="" selected="selected">Select category</option>
+          </select>
+          <br><br>
+        Select the Sub Category: <select name="subCat" id="subCat">
+            <option value="" selected="selected">Please select category first</option>
+          </select>
+          <br><br>
+          <label for="brand">Enter the Brand name:</label>
+          <input type="text" id="brand" name="brand"><br><br>
+          <label for="item">Enter the Item name:</label>
+          <input type="text" id="item" name="item"><br><br>
+          <input type="submit" value="Submit"> <br><br>
+          <div><a href='http://localhost:9090/servletProgram/'><img alt='Home' src='homeBtncircle.png' width='70' height='70'> </a></div>
+        </form>
+</body>
+</html>
